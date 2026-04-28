@@ -20,3 +20,7 @@ docker run -d \
   -e WEBUI_AUTH=False \
   --name open-webui \
   ghcr.io/open-webui/open-webui:main
+  
+  After setting it once
+	- You just need to use docker start ollama open-webui
+	- Check for the running status using sudo systemctl status ollama, because ollama may be used at the system level
