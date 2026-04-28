@@ -1,0 +1,2 @@
+ - `docker container ps` shows all the running images
+ - 

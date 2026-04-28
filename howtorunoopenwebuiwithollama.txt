@@ -1,0 +1,22 @@
+🌐 Step 2: Create network
+docker network create ollama-net
+
+(ignore error if already exists)
+
+🚀 Step 3: Run Ollama
+docker run -d \
+  --network ollama-net \
+  -v ollama:/root/.ollama \
+  -p 11434:11434 \
+  --name ollama \
+  ollama/ollama
+
+
+🚀 Step 4: Run OpenWebUI (FULL BACKEND MODE)
+docker run -d \
+  --network ollama-net \
+  -p 3000:8080 \
+  -e OLLAMA_BASE_URL=http://ollama:11434 \
+  -e WEBUI_AUTH=False \
+  --name open-webui \
+  ghcr.io/open-webui/open-webui:main
