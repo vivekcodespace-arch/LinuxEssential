@@ -1,9 +1,16 @@
-🌐 Step 2: Create network
+
+
+1. Create network(if not created)
 docker network create ollama-net
 
 (ignore error if already exists)
 
-🚀 Step 3: Run Ollama
+
+Step 2: use this to run them on the same port:
+
+- docker network connect ollama-net ollama
+
+Step 3: Run Ollama
 docker run -d \
   --network ollama-net \
   -v ollama:/root/.ollama \
@@ -12,7 +19,7 @@ docker run -d \
   ollama/ollama
 
 
-🚀 Step 4: Run OpenWebUI (FULL BACKEND MODE)
+Step 4: Run OpenWebUI (FULL BACKEND MODE)
 docker run -d \
   --network ollama-net \
   -p 3000:8080 \
@@ -21,6 +28,9 @@ docker run -d \
   --name open-webui \
   ghcr.io/open-webui/open-webui:main
   
-  After setting it once
+ Step5:  After setting it once
 	- You just need to use docker start ollama open-webui
 	- Check for the running status using sudo systemctl status ollama, because ollama may be used at the system level
+
+How can i automate this:
+
