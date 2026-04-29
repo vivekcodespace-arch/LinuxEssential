@@ -1,2 +1,2 @@
  - `docker container ps` shows all the running images
- - 
+ - Use ` docker compose up -d ` for everything up and running
